@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Coast — Cover Studio</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">NC</span> Neon Coast <em>Cover Studio</em></div>
+  <p class="tagline">Your photo + a caption = a poster-style cover. 100% offline — photos never leave your machine.</p>
+</header>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <div class="group">
+      <h2>1 · Photos</h2>
+      <p class="hint">Upload your own photos, or try the samples. Click a panel in the preview to pick it, drag to move its photo, scroll to zoom.</p>
+      <div id="photos"></div>
+      <button id="load-samples" type="button" class="secondary">Load both sample photos</button>
+    </div>
+    <div class="group">
+      <h2>2 · Layout</h2>
+      <div id="layouts" class="chips"></div>
+    </div>
+    <div class="group">
+      <h2>3 · Colour grade</h2>
+      <div id="grades" class="swatches"></div>
+      <p class="hint">Grade: <span id="grade-name">Vice Sunset</span></p>
+    </div>
+    <div class="group">
+      <h2>4 · Caption</h2>
+      <label>Title <input id="title" type="text" maxlength="28" value="NEON COAST"></label>
+      <label>Subtitle <input id="subtitle" type="text" maxlength="48" value="a sunset drive story"></label>
+    </div>
+    <div class="group">
+      <h2>5 · Selected panel</h2>
+      <label>Panel
+        <select id="panel-select"></select>
+      </label>
+      <label>Photo in this panel
+        <select id="panel-photo"></select>
+      </label>
+      <label>Zoom <span id="zoom-val">100%</span>
+        <input id="panel-zoom" type="range" min="1" max="3" step="0.05" value="1">
+      </label>
+      <div class="row">
+        <button id="fill-all" type="button" class="mini">Fill all panels with this photo</button>
+        <button id="reset-crop" type="button" class="mini">Reset crop</button>
+      </div>
+    </div>
+    <div class="group">
+      <h2>6 · Finish</h2>
+      <label class="check"><input id="grain" type="checkbox" checked> Film grain</label>
+      <label class="check"><input id="halftone" type="checkbox" checked> Halftone dots</label>
+      <label class="check"><input id="badge" type="checkbox" checked> Star badge</label>
+      <button id="shuffle" type="button" class="secondary">Shuffle layout + grade</button>
+    </div>
+  </section>
+  <section class="stage" aria-label="Live preview and export">
+    <div class="sizebar" id="sizes">
+      <span>Post size:</span>
+      <button type="button" data-size="1080x1080" class="chip">Square 1080 × 1080</button>
+      <button type="button" data-size="1080x1350" class="chip">Portrait 1080 × 1350</button>
+      <button type="button" data-size="1920x1080" class="chip">Wide 1920 × 1080</button>
+    </div>
+    <div class="canvas-wrap">
+      <canvas id="preview" width="900" height="900" aria-label="Live cover preview"></canvas>
+    </div>
+    <div class="exports">
+      <button type="button" data-export="1080x1080" class="export">Export PNG · 1080 × 1080</button>
+      <button type="button" data-export="1080x1350" class="export">Export PNG · 1080 × 1350</button>
+      <button type="button" data-export="1920x1080" class="export">Export PNG · 1920 × 1080</button>
+    </div>
+    <p id="status" role="status">Load a photo to start — or hit “Load both sample photos”.</p>
+    <p class="fineprint">Original art drawn in code. No Rockstar logo, artwork or font; no uploads, no network, no account.</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
